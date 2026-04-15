@@ -1,0 +1,171 @@
+
+                     _/\__
+               ---==/    \\
+         ___  ___   |.    \|\
+        | __|| __|  |  )   \\\
+        | _| | _|   \_/ |  //|\\
+        |___||_|       /   \\\/\\
+
+Entity Framework Core .NET Command-line Tools 10.0.5
+
+Usage: dotnet ef [options] [command]
+
+Options:
+  --version        Show version information
+  -h|--help        Show help information
+  -v|--verbose     Show verbose output.
+  --no-color       Don't colorize output.
+  --prefix-output  Prefix output with level.
+
+Commands:
+  database    Commands to manage the database.
+  dbcontext   Commands to manage DbContext types.
+  migrations  Commands to manage migrations.
+
+Use "dotnet ef [command] --help" for more information about a command.
+
+
+
+
+Good question — and this is one of those small things that can save you headaches later.
+
+---
+
+# 🧠 Short answer
+
+> ❌ Don’t install `dotnet-ef` “on the solution”
+> ✔ Install it as a **global tool OR local tool (recommended)**
+
+---
+
+# 🧱 What `dotnet-ef` actually is
+
+dotnet-ef is a **CLI tool**, not a NuGet package.
+
+It’s used for:
+
+* migrations
+* database updates
+* scaffolding
+
+---
+
+# 🧠 Two correct ways to install
+
+## ✔ Option 1 — Global install (simple)
+
+```bash id="cmd1"
+dotnet tool install --global dotnet-ef
+```
+
+### Pros:
+
+* easy
+* available everywhere
+
+### Cons:
+
+* version not tied to project ❌
+
+---
+
+## ✔ Option 2 — Local tool (RECOMMENDED)
+
+Inside your solution folder:
+
+```bash id="cmd2"
+dotnet new tool-manifest
+dotnet tool install dotnet-ef
+```
+
+### Pros:
+
+* version controlled ✔
+* same for all devs ✔
+* CI/CD friendly ✔
+
+👉 This is what **professional teams use**
+
+---
+
+# 🧠 How it works (local tool)
+
+It creates:
+
+```text id="tool1"
+.config/dotnet-tools.json
+```
+
+👉 This file tracks tool version
+
+---
+
+# 🧠 How to use after installing
+
+If global:
+
+```bash id="cmd3"
+dotnet ef migrations add Initial
+```
+
+If local:
+
+```bash id="cmd4"
+dotnet tool restore
+dotnet ef migrations add Initial
+```
+
+---
+
+# ⚠️ Important: also install EF packages
+
+Inside your **Infrastructure project**:
+
+```bash id="cmd5"
+dotnet add package Microsoft.EntityFrameworkCore.Design
+```
+
+👉 Required for migrations
+
+---
+
+# 🧠 In your modular setup
+
+You will likely run:
+
+```bash id="cmd6"
+dotnet ef migrations add Initial \
+  --project CondoManager.Owners.Infrastructure \
+  --startup-project CondoManager.Api
+```
+
+👉 Because:
+
+* DbContext is in Infrastructure
+* app entry is API
+
+---
+
+# 🚀 My recommendation for YOU
+
+Given your architecture:
+
+✔ Use **local tool (`dotnet new tool-manifest`)**
+✔ Install `dotnet-ef` locally
+✔ Keep everything versioned
+
+---
+
+# 🔥 One-line takeaway
+
+> Install `dotnet-ef` as a **local tool in the solution root**, not as a package.
+
+---
+
+If you want next step, I can help you:
+
+👉 generate your **first migration correctly for your Owners module**
+👉 or set up **multiple module migrations cleanly**
+👉 or avoid common EF migration pitfalls (there are many 😅)
+
+Just tell me 👍

@@ -1,0 +1,16 @@
+dotnet ef migrations add InitialCreate `
+-p "C:\Users\helde\Desktop\WorkSpace\Condominios\Condomanager\src\Modules\Owners\CondoManager.Owners.Infrastructure\CondoManager.Owners.Infrastructure.csproj" `
+-s "C:\Users\helde\Desktop\WorkSpace\Condominios\Condomanager\src\Api\CondoManager.Api\CondoManager.Api.csproj" // Create Migration
+
+ dotnet ef database update `
+-p "C:\Users\helde\Desktop\WorkSpace\Condominios\Condomanager\src\Modules\Owners\CondoManager.Owners.Infrastructure\CondoManager.Owners.Infrastructure.csproj" `
+-s "C:\Users\helde\Desktop\WorkSpace\Condominios\Condomanager\src\Api\CondoManager.Api\CondoManager.Api.csproj" //Update database
+
+
+ dotnet ef database drop `
+-p "C:\Users\helde\Desktop\WorkSpace\Condominios\Condomanager\src\Modules\Owners\CondoManager.Owners.Infrastructure\CondoManager.Owners.Infrastructure.csproj" `
+-s "C:\Users\helde\Desktop\WorkSpace\Condominios\Condomanager\src\Api\CondoManager.Api\CondoManager.Api.csproj" //Update database
+
+dotnet ef database update -s CondoManager.Api //Update database
+
+dotnet ef database update -s CondoManager.Api // Remove LastMigration

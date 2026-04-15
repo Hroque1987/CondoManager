@@ -1,0 +1,24 @@
+<Solution>
+  <Folder Name="/Docs/">
+    <File Path="Docs/Notes.txt" />
+    <File Path="DotNetEF.txt" />
+    <File Path="UsefullCommands.txt" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Api/">
+    <Project Path="src/Api/CondoManager.Api/API.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/Infrastructure/Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Owners/">
+    <Project Path="src/Modules/Owners/Owners/Owners.csproj" Id="9f495e2b-388c-47e4-9046-3e67bca7c394" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="src/Shared/SharedKernel/SharedKernel.csproj" />
+  </Folder>
+  <Folder Name="/src/Test/">
+    <Project Path="src/Test/UnitTests/UnitTests.csproj" />
+  </Folder>
+</Solution>

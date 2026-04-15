@@ -1,0 +1,52 @@
+CondoManager.sln
+│
+├── src/
+│
+│   ├── Api
+│   │   └── CondoManager.Api
+│
+│   ├── BuildingBlocks
+│   │   ├── CondoManager.Domain.BuildingBlocks
+│   │   ├── CondoManager.Application.BuildingBlocks
+│   │   └── CondoManager.Infrastructure.BuildingBlocks
+│
+│   ├── Modules
+│   │
+│   │   ├── Condominiums
+│   │   │   ├── CondoManager.Condominiums.Domain
+│   │   │   ├── CondoManager.Condominiums.Application
+│   │   │   └── CondoManager.Condominiums.Infrastructure
+│   │   │
+│   │   ├── Units
+│   │   │   ├── CondoManager.Units.Domain
+│   │   │   ├── CondoManager.Units.Application
+│   │   │   └── CondoManager.Units.Infrastructure
+│   │   │
+│   │   ├── Owners
+│   │   │   ├── CondoManager.Owners.Domain
+│   │   │   ├── CondoManager.Owners.Application
+│   │   │   └── CondoManager.Owners.Infrastructure
+│   │   │
+│   │   ├── Accounting
+│   │   │   ├── CondoManager.Accounting.Domain
+│   │   │   ├── CondoManager.Accounting.Application
+│   │   │   └── CondoManager.Accounting.Infrastructure
+│   │   │
+│   │   ├── Payments
+│   │   │   ├── CondoManager.Payments.Domain
+│   │   │   ├── CondoManager.Payments.Application
+│   │   │   └── CondoManager.Payments.Infrastructure
+│   │   │
+│   │   ├── Maintenance
+│   │   │   ├── CondoManager.Maintenance.Domain
+│   │   │   ├── CondoManager.Maintenance.Application
+│   │   │   └── CondoManager.Maintenance.Infrastructure
+│   │   │
+│   │   └── Notifications
+│   │       ├── CondoManager.Notifications.Domain
+│   │       ├── CondoManager.Notifications.Application
+│   │       └── CondoManager.Notifications.Infrastructure
+│
+└── tests
+    ├── CondoManager.UnitTests
+    └── CondoManager.IntegrationTests
