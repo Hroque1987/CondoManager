@@ -1,37 +1,41 @@
 using API.Configuration;
 using API.EndPoints.Owners;
 using Infrastructure.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Scalar.AspNetCore;
-using Owners.Application;
 using Infrastructure.Initializer;
 using Infrastructure.Persistance;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Owners.Application;
+using Scalar.AspNetCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.AddLogging();
 
 builder.Services.AddOpenApi();
 
-builder.Services
-    .AddOwnersInfrastructure(builder.Configuration);
+builder.Services.AddOwnersInfrastructure(builder.Configuration);
 builder.Services.AddOwnersApplication();
+
+
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
-app.MapOwnerEndPoints();
+app.AddStatusCodePages();
 
+app.MapOwnerEndPoints();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
-
-
 
 using var scope = app.Services.CreateScope();
 

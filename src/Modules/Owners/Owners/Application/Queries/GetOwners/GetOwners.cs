@@ -5,19 +5,19 @@ using Owners.Application.Interfaces;
 
 namespace Owners.Application.Queries.GetOwners;
 
-public sealed class GetOwnersQueryService
+public sealed class GetOwners : IGetOwners
     
 {
-    private readonly IOwnerRepository _repo;
+    private readonly IOwnerRepository _ownerRepository;
 
-    public GetOwnersQueryService(IOwnerRepository repo)
+    public GetOwners(IOwnerRepository ownerRepository)
     {
-        _repo = repo;
+        _ownerRepository = ownerRepository;
     }
 
-    public async Task<Result<List<OwnerResponse>>> GetOwners()
+    public async Task<Result<List<OwnerResponse>>> Execute()
     {
-        var owners = await _repo.GetAllAsync();
+        var owners = await _ownerRepository.GetAllAsync();
         var result = owners.Select(owner => OwnerMappings.ToResponse(owner)).ToList();
 
         return Result<List<OwnerResponse>>.Success(result);

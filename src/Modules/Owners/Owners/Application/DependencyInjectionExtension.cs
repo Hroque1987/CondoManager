@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Owners.Application.Queries.GetOwnerById;
 using Owners.Application.Queries.GetOwners;
 
 namespace Owners.Application;
@@ -18,6 +19,7 @@ public static class DependencyInjectionExtension
 
     private static void AddHandlers(IServiceCollection services)
     {
-        services.AddScoped<GetOwnersQueryService>();
+        services.AddScoped<IGetOwners, GetOwners>();
+        services.AddScoped<IGetOwnerById, GetOwnerById>();
     }
 }
