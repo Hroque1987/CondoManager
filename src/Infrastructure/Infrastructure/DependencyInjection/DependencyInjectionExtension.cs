@@ -21,7 +21,7 @@ public static class DependencyInjectionExtension
 
     private static void AddOwnerRepositories(IServiceCollection services)
     {
-        services.AddScoped<IOwnerRepository, OwnerRespository>();
+        services.AddScoped<IOwnerRepository, OwnerRepository>();
     }
 
     public static void AddDbContext(IServiceCollection services, IConfiguration configuration)

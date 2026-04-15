@@ -24,7 +24,7 @@ public class EmailTests
         var result = Email.Create("");
 
         Assert.True(result.IsFailure);
-        Assert.Equal(EmailErrors.Empty, result.Errors[0]);
+        Assert.Equal(GeneralErrors.Empty, result.Errors[0]);
     }
 
     [Theory]
@@ -36,6 +36,6 @@ public class EmailTests
         var result = Email.Create(mail);
 
         Assert.True(result.IsFailure);
-        Assert.Equal(EmailErrors.InvalidFormat, result.Errors[0]);
+        Assert.Equal(GeneralErrors.InvalidFormat, result.Errors[0]);
     }
 }
